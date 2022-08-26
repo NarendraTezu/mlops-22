@@ -17,7 +17,6 @@ import matplotlib.pyplot as plt
 # Import datasets, classifiers and performance metrics
 from sklearn import datasets, svm, metrics
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import ConfusionMatrixDisplay
 ###############################################################################
 # Digits dataset
 # --------------
@@ -97,8 +96,8 @@ print(
 # We can also plot a :ref:`confusion matrix <confusion_matrix>` of the
 # true digit values and the predicted digit values.
 
-disp = metrics.ConfusionMatrixDisplay.from_predictions(y_test, predicted)
-disp.figure_.suptitle("Confusion Matrix")
-print(f"Confusion matrix:\n{disp.confusion_matrix}")
+disp = metrics.confusion_matrix(y_test, predicted)
+#disp.figure_.suptitle("Confusion Matrix")
+print(f"Confusion matrix:\n{disp}")
 
-plt.show()
+#plt.show()
